@@ -2,6 +2,7 @@ package com.pavel.mvc;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -18,7 +19,8 @@ public class MyController {
     }
 
     @RequestMapping("/askDetails")
-    public String askEmployeeDetails () {
+    public String askEmployeeDetails (Model model) {
+        model.addAttribute("employee", new Employee());
         return "ask-emp-details";
     }
 //    @RequestMapping("/showDetails")
@@ -30,10 +32,9 @@ public class MyController {
 //        return "show-emp-details";
 //    }
     @RequestMapping("/showDetails")
-    public String showEmployeeDetails (@RequestParam("employeeName") String employeeName, Model model) {
-        String changeEmployeeName = "Mr. " + employeeName + "!";
-        model.addAttribute("changeEmployeeName", changeEmployeeName);
-
+    public String showEmployeeDetails (@ModelAttribute("employee") Employee employee) {
+        employee.setName("Mr. " + employee.getName());
+        employee.setSalary(employee.getSalary() * 10);
     return "show-emp-details";
-}
+    }
 }

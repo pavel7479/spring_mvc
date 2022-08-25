@@ -14,7 +14,15 @@
 <br>
 <br>
 
-Your name: ${changeEmployeeName}
+Your name: ${employee.name}
+<br>
+<br>
+Your surname: ${employee.surname}
+<br>
+<br>
+Your salary: ${employee.salary}
+<br>
+<br>
 
 </body>
 </html>
