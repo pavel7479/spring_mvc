@@ -9,12 +9,32 @@ public class Employee {
     private int salary;
     private String department;
     private Map<String, String> departments = new HashMap<>();
+    private String carBrend;
+    private Map<String, String> carBrends = new HashMap<>();
+    public String getCarBrend() {
+        return carBrend;
+    }
+
+    public void setCarBrend(String carBrend) {
+        this.carBrend = carBrend;
+    }
+
+    public Map<String, String> getCarBrends() {
+        return carBrends;
+    }
+
+    public void setCarBrends(Map<String, String> carBrends) {
+        this.carBrends = carBrends;
+    }
 
     public Employee() {
-     //   departments = ;
         departments.put("Information technology", "IT");
         departments.put("Human research", "HR");
         departments.put("Sales", "Sales");
+
+        carBrends.put("BMW", "BMW");
+        carBrends.put("Audi", "Audi");
+        carBrends.put("Mersedes-Benz", "MB");
     }
 
     public String getName() {
