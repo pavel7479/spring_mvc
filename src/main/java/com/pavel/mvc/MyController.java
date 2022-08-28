@@ -2,11 +2,13 @@ package com.pavel.mvc;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.util.ArrayList;
 
 @Controller
@@ -32,9 +34,10 @@ public class MyController {
 //        return "show-emp-details";
 //    }
     @RequestMapping("/showDetails")
-    public String showEmployeeDetails (@ModelAttribute("employee") Employee employee) {
-        employee.setName("Mr. " + employee.getName());
-        employee.setSalary(employee.getSalary() * 10);
-    return "show-emp-details";
+    public String showEmployeeDetails (@Valid @ModelAttribute("employee") Employee employee,
+                                       BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) return "ask-emp-details";
+        else return "show-emp-details";
+
     }
 }
