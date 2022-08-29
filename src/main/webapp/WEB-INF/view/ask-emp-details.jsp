@@ -47,6 +47,10 @@
     <form:checkboxes path="lenguges" items="${employee.lengugeList}"/>
     <br>
     <br>
+    Email <form:input path="email"/>
+    <form:errors path="email"/>
+    <br>
+    <br>
     <input type="submit" value="OK"/>
 </form:form>
 </body>

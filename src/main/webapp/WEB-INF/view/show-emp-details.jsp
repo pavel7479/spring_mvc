@@ -33,5 +33,8 @@ Language(s):
 
         </c:forEach>
 </ul>
+<br>
+<br>
+Your email: ${employee.email}
 </body>
 </html>

@@ -1,5 +1,7 @@
 package com.pavel.mvc;
 
+import com.pavel.mvc.validation.CheckEmail;
+
 import javax.validation.constraints.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -20,6 +22,16 @@ public class Employee {
     private Map<String, String> lengugeList = new HashMap<>();
     @Pattern(regexp = "\\d{3}-\\d{2}-\\d{2}", message = "phone Number must be XXX-XX-XX")
     private String phoneNumber;
+    @CheckEmail(value = "abc.ru", message = "Email must ends abc.ru")
+    private String email;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public String getPhoneNumber() {
         return phoneNumber;
